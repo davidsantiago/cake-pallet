@@ -5,17 +5,15 @@
   (:use cake cake.core))
 
 (deftask pallet
-  "Launch pallet tasks from the command line.
-
-   For a list of tasks
-     cake pallet help"
+  "Launch pallet tasks from the command line. Use 'cake pallet help' for tasks."
   (bake (:require [clojure.string :as str])
 	(:require pallet.main)
-	[options (:pallet *opts*)]
+	[options (concat (:pallet *opts*)
+			 (rest (drop-while #(not= "--" %) *command-line-args*)))]
 	(do
 	  (try
 	    (require 'pallet.main)
-	    (apply pallet.main/-main options)
+	    (apply pallet.main/-main "-project-options" (pr-str *project*) options)
 	    (catch java.io.FileNotFoundException e
 	      (println "Error loading pallet: " (.getMessage e))
 	      (println "You need to have pallet as a project dependency")

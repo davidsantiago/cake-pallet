@@ -9,7 +9,7 @@ Obtaining
 ---------
 In your project file, add 
 
-	[cake-pallet "0.1.0-SNAPSHOT"] 
+	[cake-pallet "0.3.0-SNAPSHOT"] 
 
 to your :dev-dependencies, and add 
 
@@ -30,6 +30,12 @@ If you'd like to make sure your pallet scripts are excluded from any jars you
 build, you can put them in a subdirectory of your project called "dev". They
 will automatically be added to the classpath while you are developing, but
 won't get built into artifacts.
+
+News
+----
+New to 0.3.0 - Now passes the project file to pallet. Also supports cake's
+ignored arguments, so you can pass arguments straight to pallet without
+cake processing.
 
 License
 -------
