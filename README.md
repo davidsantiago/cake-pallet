@@ -9,7 +9,7 @@ Obtaining
 ---------
 In your project file, add 
 
-	[cake-pallet "0.3.0-SNAPSHOT"] 
+	[cake-pallet "0.4.0-SNAPSHOT"] 
 
 to your :dev-dependencies, and add 
 
